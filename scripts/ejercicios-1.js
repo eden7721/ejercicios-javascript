@@ -64,8 +64,8 @@ function miFunct4(palabra, repeticiones) {
         try {
             palabra.toUpperCase();
             let newPalabra = "";
-            for(let i = 0; i < repeticiones; i++){
-                newPalabra+=palabra + " ";
+            for (let i = 0; i < repeticiones; i++) {
+                newPalabra += palabra + " ";
             }
             console.log(newPalabra);
         }
@@ -86,8 +86,8 @@ function miFunct5(palabra) {
         try {
             palabra.toUpperCase();
             let word = "";
-            for(let i = palabra.length-1; i >= 0; i--){
-                word+= palabra[i];
+            for (let i = palabra.length - 1; i >= 0; i--) {
+                word += palabra[i];
             }
             console.log(word);
         }
@@ -109,8 +109,8 @@ function miFunct6(palabra, palabra2) {
             const arrayPalabras = palabra.split(" ");
             let contadorPalabras = 0;
 
-            for(let i = 0; i < arrayPalabras.length; i++){
-                if(arrayPalabras[i].toLowerCase() === palabra2.toLowerCase()){
+            for (let i = 0; i < arrayPalabras.length; i++) {
+                if (arrayPalabras[i].toLowerCase() === palabra2.toLowerCase()) {
                     contadorPalabras++;
                 }
             }
@@ -131,12 +131,12 @@ function miFunct7(palabra) {
         try {
             palabra.toUpperCase();
             let word = "";
-            for(let i = palabra.length-1; i >= 0; i--){
-                word+= palabra[i];
+            for (let i = palabra.length - 1; i >= 0; i--) {
+                word += palabra[i];
             }
-            if(palabra.toLowerCase() === word.toLowerCase()){
-                console.log("Palindromo:"+true);
-            }else console.log("Palindromo:"+false);
+            if (palabra.toLowerCase() === word.toLowerCase()) {
+                console.log("Palindromo:" + true);
+            } else console.log("Palindromo:" + false);
         }
         catch (error) {
             console.log("No es un string");
@@ -153,11 +153,11 @@ function miFunct8(palabra, patron) {
         try {
             palabra.toUpperCase();
             let reemplazo = "";
-            while(palabra.includes(patron)){
+            while (palabra.includes(patron)) {
                 palabra = palabra.replace(patron, reemplazo);
             }
             console.log(palabra);
-            
+
         }
         catch (error) {
             console.log("No es un string1");
@@ -170,10 +170,142 @@ function miFunct8(palabra, patron) {
 miFunct8("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz");
 
 //9) Programa una función que obtenga un numero aleatorio entre 501 y 600.
-function miFunct9(){
-    return Math.random()*500
+function miFunct9(min, max) {
+    min = Math.floor(min);
+    max = Math.floor(max);
+    console.log(Math.floor(Math.random() * (max - min) + min));
 }
+miFunct9(501, 600);
+
+//10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
+
+function miFunct10(num) {
+    if(Array.isArray(num)){
+        console.log("Ingresa un número");
+    }
+    else {
+        if(isNaN(num)){
+            console.log("ingresa un número");
+        }
+        else {
+            let w1 = num.toString();
+            let w2 = "";
+            for(let i = w1.length-1; i >= 0; i--){
+                w2+= w1[i];
+            }
+            if(w2 === w1) console.log(true);
+            else console.log(false);
+        }
+    }
+
+}
+miFunct10("123321");
+//11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
+
+function miFunct11(num){
+    let num2 = 1;
+    for(let i = 1; i <= num; i++){
+        num2 = num2*i;
+    }
+    console.log(num2);
+}
+miFunct11(20);
+//12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+
+function miFunct12(num){
+    if(num === 2 || num === 3 || num === 5 || num === 7){
+        console.log(`${num}: es primo`);
+    }
+    else if(num === 1){
+        console.log("Uno");
+    }
+    else if(num % 2 !== 0){
+        if( num % 3 !== 0 ) {
+            if( num % 5 !== 0){
+                if( num % 7 !== 0){
+
+                    console.log(`${num}: es primo`);
+                }
+            }
+        }
+    }
+}
+miFunct12(97);
+
+//13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+function miFunct13(num){
+    if(num % 2 === 0){
+        console.log(`${num}: es par`);
+    } else console.log(`${num}: es impar`);
+}
+miFunct13(5);
+
+//14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+function miFunct14(temp, mod){
+    let celsius = 0;
+    let faren = 0;
+    if(mod === 'C'){
+        celsius = (temp * 9 / 5) + 32;
+        console.log(celsius+"°F");
+    }
+    else if(mod = 'F') {
+        faren = (temp - 32) * 5 / 9;
+        console.log(faren + "°C");
+    }
+    else{
+        console.log("Ingresa bien la medida");
+    }
+}
+miFunct14(0, 'C');
+miFunct14(0, 'F');
+miFunct14(12, 'C');
+
+//15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
+function miFunct17(num, base){
+    let wNum = num.toString();
+    let num2 = 0;
+    let num3 = "";
+    let miArray = [];
+    if(base === 2){
+        miArray = wNum.split("");
+        let b = miArray.length - 1; 
+        for(let i = 0; i < miArray.length; i++){
+            miArray[i] = Number.parseInt(miArray[i]);
+        }
+        for(let i = 0; i < miArray.length; i++){
+            num2+= + (miArray[i] * Math.pow(2, b));
+            b--;
+        }
+        console.log(`${num2} base 10`);
+    }
+    else if(base === 10){
+        while(num !== 0){
+            miArray.push((num % 2).toString());
+            num = Math.floor(num / 2);
+        }
+        for(let i = miArray.length - 1; i >= 0; i--){
+            num3+= miArray[i];
+        }
+        console.log(`${num3} base 2`);
+    }
+}
+miFunct17(4, 10);
+
+//16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
+
+const miFunct15 = (monto, descuento) => monto = monto - (monto * (descuento * 0.01));
+console.log(miFunct15(1000, 20));
+
+//17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
+
+function miFunct16(date){
+    let yearActual = new Date().getFullYear();
+    let monthActual = new Date().getMonth();
+    if(Number.parseInt(monthActual) >= Number.parseInt(date.getMonth())){
+        return Number.parseInt(yearActual) - Number.parseInt(date.getFullYear());
+    }
+    else return Number.parseInt(yearActual) - Number.parseInt(date.getFullYear()) - 1;
+}
+console.log(miFunct16(new Date(2004, 10, 17)));
 /*
-10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
-11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
 */
