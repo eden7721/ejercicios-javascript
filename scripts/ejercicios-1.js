@@ -78,3 +78,95 @@ function miFunct4(palabra, repeticiones) {
     }
 }
 miFunct4("Hola mundo", 33);
+
+
+//5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+function miFunct5(palabra) {
+    if (isNaN(palabra)) {
+        try {
+            palabra.toUpperCase();
+            let word = "";
+            for(let i = palabra.length-1; i >= 0; i--){
+                word+= palabra[i];
+            }
+            console.log(word);
+        }
+        catch (error) {
+            console.log("No es un string");
+        }
+    }
+    else {
+        console.log("No es un string");
+    }
+}
+miFunct5("causita pe causita");
+
+//6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+function miFunct6(palabra, palabra2) {
+    if (isNaN(palabra)) {
+        try {
+            palabra.toUpperCase();
+            const arrayPalabras = palabra.split(" ");
+            let contadorPalabras = 0;
+
+            for(let i = 0; i < arrayPalabras.length; i++){
+                if(arrayPalabras[i].toLowerCase() === palabra2.toLowerCase()){
+                    contadorPalabras++;
+                }
+            }
+            console.log(contadorPalabras);
+        }
+        catch (error) {
+            console.log("No es un string");
+        }
+    }
+    else {
+        console.log("No es un string");
+    }
+}
+miFunct6("causita pe causita, claro pe causita. O vas a decir que no PE", "pe");
+//7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+function miFunct7(palabra) {
+    if (isNaN(palabra)) {
+        try {
+            palabra.toUpperCase();
+            let word = "";
+            for(let i = palabra.length-1; i >= 0; i--){
+                word+= palabra[i];
+            }
+            if(palabra.toLowerCase() === word.toLowerCase()){
+                console.log("Palindromo:"+true);
+            }else console.log("Palindromo:"+false);
+        }
+        catch (error) {
+            console.log("No es un string");
+        }
+    }
+    else {
+        console.log("No es un string");
+    }
+}
+miFunct7("ojo");
+//8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+function miFunct8(palabra, patron) {
+    if (isNaN(palabra)) {
+        try {
+            palabra.toUpperCase();
+            let reemplazo = "";
+            while(palabra.includes(patron)){
+                palabra = palabra.replace(patron, reemplazo);
+            }
+            console.log(palabra);
+            
+        }
+        catch (error) {
+            console.log("No es un string1");
+        }
+    }
+    else {
+        console.log("No es un string2");
+    }
+}
+miFunct8("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz");
+/*
+*/
